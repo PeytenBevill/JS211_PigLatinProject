@@ -12,9 +12,21 @@ const rl = readline.createInterface({
 
 
 const pigLatin = (word) => {
+  word = word.toLowerCase().trim()
+  let vowels = ['a', 'e', 'i', 'o', 'u']
+  let result = ''
 
-  // Your code here
-
+  for (let i = 0; i < word.length; i++) {
+    if (vowels.includes(word[0])) {
+      result = word + 'yay'
+    } else if (vowels.includes(word[i])) {
+      let firstHalf = word.slice(0, i)
+      let secondHalf = word.slice(i)
+      result = secondHalf + firstHalf + 'ay'
+      break;
+    }
+  }
+  return result
 }
 
 // the first function called in the program to get an input from the user
